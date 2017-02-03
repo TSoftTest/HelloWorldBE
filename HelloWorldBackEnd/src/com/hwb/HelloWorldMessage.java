@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class HelloWorldMessage {
-	private String message = "Version 25";
+	private String message = "Version 26";
 
 	public String getMessage() {
 		return this.message;
@@ -13,7 +13,7 @@ public class HelloWorldMessage {
 
 	public String getEnvironment() {
 		Properties properties = new Properties();
-		InputStream is = this.getClass().getResourceAsStream("helloWorld.properties");
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("helloWorld.properties");
 		try {
 			properties.load(is);
 		} catch (IOException e) {
